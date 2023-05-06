@@ -6,6 +6,10 @@ public class Main {
     public static void main(String[] args) {
         /*
           如果多个线程同时读写共享变量，会出现数据不一致的问题
+          多线程同时读写共享变量时，可能会造成逻辑错误，因此需要通过 synchronized 同步；
+          同步的本质就是给指定对象加锁，加锁后才能继续执行后续代码；
+          注意加锁对象必须是同一个实例；
+          对 JVM 定义的单个原子操作不需要同步
          */
         Thread addThread = new AddThread();
         Thread decThread = new DecThread();
